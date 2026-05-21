@@ -31,3 +31,13 @@ docker run --rm -p 9000:9000 \
   -e WHISPER_COMPUTE_TYPE=int8 \
   local-whisper
 ```
+
+## Kubernetes
+
+Apply the persistent volume claim, deployment, and service:
+
+```sh
+kubectl apply -f k8s/local-whisper.yaml
+```
+
+The deployment uses `ghcr.io/chipclee/local-whisper:latest`, sets the runtime environment variables directly in the pod spec, and stores `/models` on the `local-whisper-models` PVC.
