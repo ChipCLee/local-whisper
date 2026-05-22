@@ -55,11 +55,11 @@ spec:
             - name: HF_HOME
               value: /models/huggingface
             - name: WHISPER_MODEL
-              value: large-v3-turbo
+              value: large-v3-turbo # Use "tiny", "base", "small", "medium", "large-v1", "large-v2", or "large-v3-turbo" for different model sizes
             - name: WHISPER_DEVICE
-              value: cpu
+              value: cpu # Use "cpu" for CPU inference, "cuda" for GPU inference
             - name: WHISPER_COMPUTE_TYPE
-              value: int8
+              value: int8 # Use "int8" for quantized models, "float16" for FP16 models, or "float32" for full precision models
             - name: WHISPER_PORT
               value: "9000"
           volumeMounts:
@@ -93,7 +93,7 @@ metadata:
   labels:
     app.kubernetes.io/name: local-whisper
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app.kubernetes.io/name: local-whisper
   ports:

@@ -1,0 +1,3 @@
+NODE_IP=127.0.0.1
+NODE_PORT=9000
+curl http://$NODE_IP:$NODE_PORT/v1/models
